@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='UTF-8'>
+	
+	<title>Play Sound on :hover</title>
+	
+	<link rel='stylesheet' href='css/style.css'>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+</head>
+
+<body>
+  
+	<div id="page-wrap">
+	
+		<header><div class="inside">
+			<h1>Play Audio on :click</h1>
+			
+			<p>We're going to use HTML5 here, no Flash. We'll need an audio element with both MP3 (WebKit, IE) and OGG (Firefox, Opera). </p>
+			
+			<pre><code>&lt;audio controls preload=&quot;auto&quot;&gt;
+	&lt;source src=&quot;audio/rise.mp3&quot; controls&gt;&lt;/source&gt;
+	&lt;source src=&quot;audio/rise.ogg&quot; controls&gt;&lt;/source&gt;
+	Your browser isn&#39;t invited for super fun audio time.
+&lt;/audio&gt;</code></pre>
+
+		<p>We're using jQuery in this demo to make selecting things and events easier, but the .play() function is native. You
+		probably wouldn't show the audio element, that's for demo purposes only, <strong>just remove the control attribute to not show anything.</strong></p>
+		</div></header>
+		
+		<section id="one"><div class="inside">
+		
+		<h2>One &lt;audio> for all menu items</h2>
+
+		<p>.play() won't force the audio clip to start over unless it's finished first, not very smooth.</p>
+		
+		<ul id="nav-one" class="nav">
+		   <li>
+		   	<audio id="beep-one" preload="auto" controls="controls">
+				<source src="audio/rise.mp3"></source>
+				<source src="audio/rise.ogg"></source>
+				Your browser isn't invited for super fun time.
+			</audio>
+			</li>
+		   <li><a href="#" class="on">ON</a></li>
+		   <li><a href="#" class="off">OFF</a></li>
+		</ul>
+		
+		<script>
+var beepOne = $("#beep-one")[0];
+	$("#nav-one a.on")
+		.click(function() {
+		beepOne.play();
+	});
+	$("#nav-one a.off")
+		.click(function() {
+		beepOne.pause();
+	});
+		</script>
+		
+		</div>
+	</section>
+		
+				
+</body>
+
+</html>
